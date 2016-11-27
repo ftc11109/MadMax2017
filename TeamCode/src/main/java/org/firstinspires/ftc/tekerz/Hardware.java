@@ -1,7 +1,9 @@
 package org.firstinspires.ftc.tekerz;
 
+import com.qualcomm.robotcore.hardware.ColorSensor;
 import com.qualcomm.robotcore.hardware.DcMotor;
 import com.qualcomm.robotcore.hardware.HardwareMap;
+import com.qualcomm.robotcore.hardware.LightSensor;
 import com.qualcomm.robotcore.hardware.Servo;
 import com.qualcomm.robotcore.util.ElapsedTime;
 
@@ -23,6 +25,8 @@ public class Hardware
     public Servo    leftRoller = null;
     public Servo    rightRoller = null;
     public Servo    directParticle = null;
+    public ColorSensor colorSensor0 = null;
+    public ColorSensor colorSensor1 = null;
 
 
     /* local OpMode members. */
@@ -50,6 +54,9 @@ public class Hardware
         rightRoller = hwMap.servo.get("right_roller");
         directParticle = hwMap.servo.get("direct_particle");
 
+        colorSensor0 = hwMap.colorSensor.get("rgb0");
+        colorSensor1 = hwMap.colorSensor.get("rgb1");
+
 
         // Define and Initialize Motors
         leftDrive.setDirection(DcMotor.Direction.FORWARD); // Set to REVERSE if using AndyMark motors
@@ -65,8 +72,8 @@ public class Hardware
 
         // Set all motors to run without encoders.
         // May want to use RUN_USING_ENCODERS if encoders are installed.
-        leftDrive.setMode(DcMotor.RunMode.RUN_WITHOUT_ENCODER);
-        rightDrive.setMode(DcMotor.RunMode.RUN_WITHOUT_ENCODER);
+        leftDrive.setMode(DcMotor.RunMode.RUN_USING_ENCODER);
+        rightDrive.setMode(DcMotor.RunMode.RUN_USING_ENCODER);
         collector.setMode(DcMotor.RunMode.RUN_WITHOUT_ENCODER);
         shooterFire.setMode(DcMotor.RunMode.RUN_WITHOUT_ENCODER);
         shooterLoad.setMode(DcMotor.RunMode.RUN_WITHOUT_ENCODER);

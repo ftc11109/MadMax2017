@@ -32,6 +32,8 @@ THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 */
 package org.firstinspires.ftc.tekerz;
 
+import android.graphics.Color;
+
 import com.qualcomm.robotcore.eventloop.opmode.Autonomous;
 import com.qualcomm.robotcore.eventloop.opmode.OpMode;
 import com.qualcomm.robotcore.eventloop.opmode.TeleOp;
@@ -68,6 +70,14 @@ public class Teleop extends OpMode{
     double directParicleOffset = 0.0 ;                  // Servo mid position
     boolean reversedDirection = false;
 
+    // hsvValues is an array that will hold the hue, saturation, and value information.
+    float hsvValues0[] = {0F,0F,0F};
+    float hsvValues1[] = {0F,0F,0F};
+
+    // values is a reference to the hsvValues array.
+    final float values0[] = hsvValues0;
+    final float values1[] = hsvValues1;
+
     /*
      * Code to run ONCE when the driver hits INIT
      */
@@ -98,6 +108,9 @@ public class Teleop extends OpMode{
         robot.rightRoller.setPosition(RIGHT_ROLLER_BASE);
         robot.directParticle.setPosition(DIRECT_PARTICLE_BASE);
         robot.shooterFire.setPower(0.0);
+
+        robot.colorSensor0.enableLed(true);
+        robot.colorSensor1.enableLed(true);
     }
 
     /*
@@ -226,6 +239,27 @@ public class Teleop extends OpMode{
         telemetry.addData("left roller",  "pos = %.2f", robot.leftRoller.getPosition());
         telemetry.addData("right roller",  "pos = %.2f", robot.rightRoller.getPosition());
         telemetry.addData("dirctor", "%.2f", robot.directParticle.getPosition());
+
+        Color.RGBToHSV(robot.colorSensor0.red(), robot.colorSensor0.green(), robot.colorSensor0.blue(), hsvValues0);
+        Color.RGBToHSV(robot.colorSensor1.red(), robot.colorSensor1.green(), robot.colorSensor1.blue(), hsvValues1);
+
+        // send the info back to driver station using telemetry function.
+        telemetry.addData("Clear0", robot.colorSensor0.alpha());
+        telemetry.addData("Red  0", robot.colorSensor0.red());
+        telemetry.addData("Green0", robot.colorSensor0.green());
+        telemetry.addData("Blue 0", robot.colorSensor0.blue());
+        telemetry.addData("Hue0", hsvValues0[0]);
+
+        telemetry.addData("Clear1", robot.colorSensor1.alpha());
+        telemetry.addData("Red  1", robot.colorSensor1.red());
+        telemetry.addData("Green1", robot.colorSensor1.green());
+        telemetry.addData("Blue 1", robot.colorSensor1.blue());
+        telemetry.addData("Hue1", hsvValues1[0]);
+
+        telemetry.addData("Wheels",  "at %7d :%7d",
+                robot.leftDrive.getCurrentPosition(),
+                robot.rightDrive.getCurrentPosition());
+
     }
 
     /*
