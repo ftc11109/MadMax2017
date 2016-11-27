@@ -22,6 +22,6 @@ public class Constants {
 
     public static final double SHOOTER_POWER = 0.8;
     public static final double COLLECTOR_POWER = 0.7;
-    public static final double SHOOTER_LOADER_POWER = 0.5;
+    public static final double SHOOTER_LOADER_POWER = 0.55;
 
 }
