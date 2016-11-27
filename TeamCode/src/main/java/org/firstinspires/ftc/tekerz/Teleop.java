@@ -55,7 +55,7 @@ import static org.firstinspires.ftc.tekerz.Constants.*;
  */
 
 @TeleOp(name="Tekerz: Teleop", group="Tekerz")
-//@Autonomous(name="Tekerz: Auto", group="Tekerz")
+//@Autonomous(name="Tekerz: AutoByTime", group="Tekerz")
 
 
 

@@ -64,11 +64,11 @@ import static org.firstinspires.ftc.tekerz.Constants.SHOOTER_POWER;
  */
 
 //@TeleOp(name="Tekerz: Teleop", group="Tekerz")
-@Autonomous(name="Tekerz: Auto", group="Tekerz")
+@Autonomous(name="Tekerz: AutoByTime", group="Tekerz")
 
 
 
-public class Auto extends OpMode {
+public class AutoByTime extends OpMode {
 
     /* Declare OpMode members. */
     Hardware robot = new Hardware(); // use the class created to define a Pushbot's hardware
