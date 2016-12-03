@@ -33,20 +33,11 @@ THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 package org.firstinspires.ftc.tekerz;
 
 import com.qualcomm.robotcore.eventloop.opmode.OpMode;
-import com.qualcomm.robotcore.eventloop.opmode.TeleOp;
-import com.qualcomm.robotcore.util.Range;
 import com.qualcomm.robotcore.eventloop.opmode.Autonomous;
 
-import static org.firstinspires.ftc.tekerz.Constants.COLLECTOR_POWER;
 import static org.firstinspires.ftc.tekerz.Constants.DIRECT_PARTICLE_BASE;
-import static org.firstinspires.ftc.tekerz.Constants.DIRECT_PARTICLE_MAX;
-import static org.firstinspires.ftc.tekerz.Constants.DIRECT_PARTICLE_MIN;
-import static org.firstinspires.ftc.tekerz.Constants.DIRECT_PARTICLE_SPEED;
 import static org.firstinspires.ftc.tekerz.Constants.LEFT_ROLLER_BASE;
 import static org.firstinspires.ftc.tekerz.Constants.RIGHT_ROLLER_BASE;
-import static org.firstinspires.ftc.tekerz.Constants.ROLLER_SPEED;
-import static org.firstinspires.ftc.tekerz.Constants.SHOOTER_LOADER_POWER;
-import static org.firstinspires.ftc.tekerz.Constants.SHOOTER_POWER;
 
 /**
  * This file provides basic Telop driving for a Pushbot robot.
@@ -106,7 +97,7 @@ public class AutoByTime extends OpMode {
         robot.leftRoller.setPosition(LEFT_ROLLER_BASE);
         robot.rightRoller.setPosition(RIGHT_ROLLER_BASE);
         robot.directParticle.setPosition(DIRECT_PARTICLE_BASE);
-        robot.shooterFire.setPower(0.0);
+        robot.shooterRight.setPower(0.0);
     }
 
     /*
