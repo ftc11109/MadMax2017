@@ -3,7 +3,6 @@ package org.firstinspires.ftc.tekerz;
 import com.qualcomm.robotcore.hardware.ColorSensor;
 import com.qualcomm.robotcore.hardware.DcMotor;
 import com.qualcomm.robotcore.hardware.HardwareMap;
-import com.qualcomm.robotcore.hardware.LightSensor;
 import com.qualcomm.robotcore.hardware.Servo;
 import com.qualcomm.robotcore.util.ElapsedTime;
 
@@ -19,9 +18,11 @@ public class Hardware
 
     public DcMotor leftDrive = null;
     public DcMotor rightDrive = null;
-    public DcMotor  collector = null;
-    public DcMotor  shooterLoad  = null;
-    public DcMotor  shooterFire = null;
+    public DcMotor collecter = null;
+    public DcMotor shooterClipRight = null;
+    public DcMotor shooterClipLeft = null;
+    public DcMotor shooterRight = null;
+    public DcMotor shooterLeft = null;
     public Servo    leftRoller = null;
     public Servo    rightRoller = null;
     public Servo    directParticle = null;
@@ -46,9 +47,11 @@ public class Hardware
         //NAMES OF THINGS!!
         leftDrive = hwMap.dcMotor.get("left_drive");
         rightDrive = hwMap.dcMotor.get("right_drive");
-        collector = hwMap.dcMotor.get("collector");
-        shooterLoad = hwMap.dcMotor.get("shooter_load");
-        shooterFire = hwMap.dcMotor.get("shooter_fire");
+        collecter = hwMap.dcMotor.get("collecter");
+        shooterClipRight = hwMap.dcMotor.get("shooter_clip_right");
+        shooterRight = hwMap.dcMotor.get("shooter_fire_right");
+        shooterClipLeft = hwMap.dcMotor.get("shooter_clip_left");
+        shooterLeft = hwMap.dcMotor.get("shooter_fire_left");
 
         leftRoller = hwMap.servo.get("left_roller");
         rightRoller = hwMap.servo.get("right_roller");
@@ -61,22 +64,30 @@ public class Hardware
         // Define and Initialize Motors
         leftDrive.setDirection(DcMotor.Direction.FORWARD); // Set to REVERSE if using AndyMark motors
         rightDrive.setDirection(DcMotor.Direction.REVERSE);// Set to FORWARD if using AndyMark motors
-        collector.setDirection(DcMotor.Direction.REVERSE);
+        collecter.setDirection(DcMotor.Direction.REVERSE);
+        shooterClipLeft.setDirection(DcMotor.Direction.FORWARD); // Set to REVERSE if using AndyMark motors
+        shooterClipRight.setDirection(DcMotor.Direction.REVERSE);// Set to FORWARD if using AndyMark motors
+        shooterLeft.setDirection(DcMotor.Direction.FORWARD); // Set to REVERSE if using AndyMark motors
+        shooterRight.setDirection(DcMotor.Direction.REVERSE);// Set to FORWARD if using AndyMark motors
 
         // Set all motors to zero power
         leftDrive.setPower(0);
         rightDrive.setPower(0);
-        collector.setPower(0);
-        shooterLoad.setPower(0);
-        shooterFire.setPower(0);
+        collecter.setPower(0);
+        shooterClipRight.setPower(0);
+        shooterRight.setPower(0);
+        shooterClipLeft.setPower(0);
+        shooterLeft.setPower(0);
 
         // Set all motors to run without encoders.
         // May want to use RUN_USING_ENCODERS if encoders are installed.
         leftDrive.setMode(DcMotor.RunMode.RUN_USING_ENCODER);
         rightDrive.setMode(DcMotor.RunMode.RUN_USING_ENCODER);
-        collector.setMode(DcMotor.RunMode.RUN_WITHOUT_ENCODER);
-        shooterFire.setMode(DcMotor.RunMode.RUN_WITHOUT_ENCODER);
-        shooterLoad.setMode(DcMotor.RunMode.RUN_WITHOUT_ENCODER);
+        collecter.setMode(DcMotor.RunMode.RUN_WITHOUT_ENCODER);
+        shooterRight.setMode(DcMotor.RunMode.RUN_USING_ENCODER);
+        shooterClipRight.setMode(DcMotor.RunMode.RUN_USING_ENCODER);
+        shooterLeft.setMode(DcMotor.RunMode.RUN_USING_ENCODER);
+        shooterClipLeft.setMode(DcMotor.RunMode.RUN_USING_ENCODER);
 
         // Define and initialize ALL installed servos.
         directParticle.setDirection(Servo.Direction.REVERSE);
