@@ -18,10 +18,10 @@ public class Constants {
     public static final double RIGHT_ROLLER_OPEN = 1.0 - LEFT_ROLLER_BASE;
 
     public static final double ROLLER_SPEED = 0.5;
-    public static final double DIRECT_PARTICLE_SPEED = 0.005;
+    public static final double DIRECT_PARTICLE_SPEED = 0.001;
 
-    public static final double SHOOTER_POWER = 1.0;
+    public static final double SHOOTER_POWER = 0.8;
     public static final double COLLECTOR_POWER = 0.7;
-    public static final double SHOOTER_CLIP_POWER = 0.40;
-    public static final double SHOOTER_CLIP_LAUNCH = 1.0;
+    public static final double SHOOTER_LOADER_POWER = 0.55;
+
 }

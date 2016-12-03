@@ -34,6 +34,7 @@ package org.firstinspires.ftc.tekerz;
 
 import android.graphics.Color;
 
+import com.qualcomm.robotcore.eventloop.opmode.Autonomous;
 import com.qualcomm.robotcore.eventloop.opmode.OpMode;
 import com.qualcomm.robotcore.eventloop.opmode.TeleOp;
 import com.qualcomm.robotcore.util.Range;
@@ -106,8 +107,7 @@ public class Teleop extends OpMode{
         robot.leftRoller.setPosition(LEFT_ROLLER_BASE);
         robot.rightRoller.setPosition(RIGHT_ROLLER_BASE);
         robot.directParticle.setPosition(DIRECT_PARTICLE_BASE);
-        robot.shooterRight.setPower(0.0);
-        robot.shooterLeft.setPower(0.0);
+        robot.shooterFire.setPower(0.0);
 
         robot.colorSensor0.enableLed(true);
         robot.colorSensor1.enableLed(true);
@@ -126,8 +126,6 @@ public class Teleop extends OpMode{
 
         /*********************************************************
          *      REVERSE     A / B     G2
-         *      B sets the controls to normal
-         *      A inverts the drive controls
          *      used for putting the robot in reverse drive
          */
         if (gamepad2.b) {
@@ -190,14 +188,11 @@ public class Teleop extends OpMode{
 
 
         if (gamepad1.right_trigger > 0.3) {
-            robot.shooterClipRight.setPower(SHOOTER_CLIP_POWER);
-            robot.shooterClipLeft.setPower(SHOOTER_CLIP_POWER);
+            robot.shooterLoad.setPower(SHOOTER_LOADER_POWER);
         } else if (gamepad1.left_trigger > 0.3) {
-            robot.shooterClipRight.setPower(-SHOOTER_CLIP_POWER);
-            robot.shooterClipLeft.setPower(-SHOOTER_CLIP_POWER);
+            robot.shooterLoad.setPower(-SHOOTER_LOADER_POWER);
         } else {
-            robot.shooterClipRight.setPower(0.0);
-            robot.shooterClipLeft.setPower(0.0);
+            robot.shooterLoad.setPower(0.0);
         }
 
 
@@ -209,11 +204,11 @@ public class Teleop extends OpMode{
          *      toggle rollers open/close
          */
         if (gamepad1.dpad_up ) {
-            robot.collecter.setPower(COLLECTOR_POWER);
+            robot.collector.setPower(COLLECTOR_POWER);
         } else if (gamepad1.dpad_down) {
-            robot.collecter.setPower(-COLLECTOR_POWER);
+            robot.collector.setPower(-COLLECTOR_POWER);
         } else {
-            robot.collecter.setPower(0.0);
+            robot.collector.setPower(0.0);
         }
 
 
@@ -221,12 +216,10 @@ public class Teleop extends OpMode{
         // ----------------------shooter---------------------
 
         if (gamepad1.a) {
-            robot.shooterRight.setPower(SHOOTER_POWER);
-            robot.shooterLeft.setPower(SHOOTER_POWER);
+            robot.shooterFire.setPower(SHOOTER_POWER);
 
         } else if (gamepad1.b){
-            robot.shooterRight.setPower(0.0);
-            robot.shooterLeft.setPower(0.0);
+            robot.shooterFire.setPower(0.0);
         }
 
 
