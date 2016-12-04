@@ -209,11 +209,11 @@ public class Teleop extends OpMode{
          *      toggle rollers open/close
          */
         if (gamepad1.dpad_up ) {
-            robot.collecter.setPower(COLLECTOR_POWER);
+            robot.intake.setPower(COLLECTOR_POWER);
         } else if (gamepad1.dpad_down) {
-            robot.collecter.setPower(-COLLECTOR_POWER);
+            robot.intake.setPower(-COLLECTOR_POWER);
         } else {
-            robot.collecter.setPower(0.0);
+            robot.intake.setPower(0.0);
         }
 
 
